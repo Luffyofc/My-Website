@@ -1,113 +1,236 @@
-<!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zxddos-Stresser Plans</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Link Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body style="background-color: #111; color: white; font-family: Arial, sans-serif; text-align: center; padding: 40px; margin: 0;">
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-semibold text-gray-900 flex items-center">
+        <i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i> Link Tracker
+      </h1>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header style="background-color: #111; margin-bottom: 30px; padding: 30px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);">
-        <h1 style="font-size: 3em; color: white; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);">Zxddos-Stresser</h1>
-        <nav>
-            <a href="#plans" style="color: white; text-decoration: none; font-size: 1.2em; margin: 0 15px;">Plans</a>
-            <a href="#hold-service" style="color: white; text-decoration: none; font-size: 1.2em; margin: 0 15px;">Hold Service</a>
-        </nav>
-    </header>
-
-    <!-- Plans Section -->
-    <section id="plans" style="margin-bottom: 40px;">
-        <h2 style="font-size: 2.5em; color: white; margin-bottom: 30px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); background-color: #111; padding: 10px;">Plans</h2>
-
-        <!-- Basic Plan -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white; margin-bottom: 10px;">Basic Plan</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>Max Time: 60 Seconds</li>
-                <li>Concurrent: 1</li>
-                <li>Cooldown: 180s</li>
-                <li>Access VIP: Tidak Tersedia</li>
-            </ul>
-            <p style="font-size: 1.5em; margin-bottom: 20px;">IDR 15.000 (1 Hari)</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Buy Now</a>
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <section class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Create a Tracking Link</h2>
+      <form id="createLinkForm" class="space-y-4">
+        <div>
+          <label for="targetUrl" class="block text-gray-700 font-medium mb-1">Target URL</label>
+          <input
+            type="url"
+            id="targetUrl"
+            name="targetUrl"
+            placeholder="https://example.com"
+            required
+            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
-
-        <!-- Pro Plan -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white; margin-bottom: 10px;">Pro Plan</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>Max Time: 120 Seconds</li>
-                <li>Concurrent: 1</li>
-                <li>Cooldown: 120s</li>
-                <li>Access VIP: Tersedia</li>
-            </ul>
-            <p style="font-size: 1.5em; margin-bottom: 20px;">IDR 100.000 (7 Hari)</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Buy Now</a>
+        <div>
+          <label for="customAlias" class="block text-gray-700 font-medium mb-1">Custom Alias (optional)</label>
+          <input
+            type="text"
+            id="customAlias"
+            name="customAlias"
+            placeholder="my-link"
+            pattern="^[a-zA-Z0-9-_]{3,30}$"
+            title="3-30 characters, letters, numbers, dash or underscore only"
+            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
-
-        <!-- Business Plan -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white; margin-bottom: 10px;">Business Plan</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>Max Time: 600 Seconds</li>
-                <li>Concurrent: 3</li>
-                <li>Cooldown: 60s</li>
-                <li>Access VIP: Tersedia</li>
-            </ul>
-            <p style="font-size: 1.5em; margin-bottom: 20px;">IDR 400.000 - 500.000 (30 Hari)</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Buy Now</a>
-        </div>
+        <button
+          type="submit"
+          class="inline-flex items-center px-5 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+          <i class="fas fa-link mr-2"></i> Create Link
+        </button>
+      </form>
+      <div id="linkResult" class="mt-6 text-indigo-700 break-all"></div>
     </section>
 
-    <!-- Hold Service Section -->
-    <section id="hold-service" style="margin-bottom: 40px;">
-        <h2 style="font-size: 2.5em; color: white; margin-bottom: 30px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); background-color: #111; padding: 10px;">Hold Service</h2>
-
-        <!-- Hold Basic -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white;">Hold Basic</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>1 Jam Non-stop Attack</li>
-                <li>Cannot Reach the Page</li>
-                <li>Removed From Keyword</li>
-                <li>Down 24/7</li>
-            </ul>
-            <p style="font-size: 1.5em;">$11.00 per Jam</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Contact Me</a>
-        </div>
-
-        <!-- Hold Pro -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white;">Hold Pro</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>1 Hari Non-stop Attack</li>
-                <li>Cannot Reach the Page</li>
-                <li>Removed From Keyword</li>
-                <li>Down 24/7</li>
-            </ul>
-            <p style="font-size: 1.5em;">$150.00 per Hari</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Contact Me</a>
-        </div>
-
-        <!-- Hold Ultimate -->
-        <div style="background-color: #333; padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);">
-            <h3 style="font-size: 2em; color: white;">Hold Ultimate</h3>
-            <ul style="list-style: none; padding: 0; font-size: 1.2em; color: #ccc;">
-                <li>Suspens Website Page</li>
-                <li>Cannot Reach the Page</li>
-                <li>Removed From Keyword</li>
-                <li>Can't Access Permanently</li>
-            </ul>
-            <p style="font-size: 1.5em;">Harga: ???</p>
-            <a href="https://t.me/ZOXX_OFX" target="_blank" style="display: inline-block; background-color: #2980b9; padding: 15px 30px; border-radius: 8px; color: white; font-size: 1.2em; text-decoration: none; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); transition: all 0.3s ease;">Contact Me</a>
-        </div>
+    <section class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Tracked Link Opens</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200 text-left text-sm">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 font-medium text-gray-700">Tracking Link</th>
+              <th class="px-4 py-2 font-medium text-gray-700">IP Address</th>
+              <th class="px-4 py-2 font-medium text-gray-700">Location</th>
+              <th class="px-4 py-2 font-medium text-gray-700">Date & Time</th>
+            </tr>
+          </thead>
+          <tbody id="trackingTableBody" class="divide-y divide-gray-100">
+            <tr>
+              <td colspan="4" class="px-4 py-6 text-center text-gray-400">No tracking data yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer style="background-color: #111; padding: 20px; width: 100%; color: white; font-size: 1.2em;">
-        <p>&copy; 2025 Zxddos-Stresser</p>
-    </footer>
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">
+      &copy; 2024 Link Tracker. All rights reserved.
+    </div>
+  </footer>
 
+  <script>
+    // Simple in-memory storage for links and tracking data
+    const links = {};
+    const trackingData = [];
+
+    // Base URL for generated tracking links (simulate current domain)
+    const baseUrl = window.location.origin;
+
+    // Elements
+    const form = document.getElementById('createLinkForm');
+    const linkResult = document.getElementById('linkResult');
+    const trackingTableBody = document.getElementById('trackingTableBody');
+
+    // Helper: sanitize alias input
+    function sanitizeAlias(alias) {
+      return alias.trim().toLowerCase();
+    }
+
+    // Helper: format date/time
+    function formatDateTime(date) {
+      return date.toLocaleString();
+    }
+
+    // Render tracking data table rows
+    function renderTrackingTable() {
+      if (trackingData.length === 0) {
+        trackingTableBody.innerHTML = `
+          <tr>
+            <td colspan="4" class="px-4 py-6 text-center text-gray-400">No tracking data yet.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      trackingTableBody.innerHTML = trackingData
+        .map(
+          (item) => `
+          <tr>
+            <td class="px-4 py-2 text-indigo-700 break-all">${baseUrl}/t/${item.alias}</td>
+            <td class="px-4 py-2">${item.ip}</td>
+            <td class="px-4 py-2">${item.location}</td>
+            <td class="px-4 py-2">${formatDateTime(new Date(item.timestamp))}</td>
+          </tr>
+        `
+        )
+        .join('');
+    }
+
+    // Create tracking link
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const targetUrl = form.targetUrl.value.trim();
+      let alias = form.customAlias.value.trim();
+
+      if (!targetUrl) {
+        alert('Please enter a valid target URL.');
+        return;
+      }
+
+      if (alias) {
+        alias = sanitizeAlias(alias);
+        if (links[alias]) {
+          alert('This custom alias is already taken. Please choose another.');
+          return;
+        }
+      } else {
+        // Generate random alias
+        alias = Math.random().toString(36).substring(2, 8);
+        while (links[alias]) {
+          alias = Math.random().toString(36).substring(2, 8);
+        }
+      }
+
+      // Save link
+      links[alias] = targetUrl;
+
+      // Show generated link
+      linkResult.innerHTML = `
+        <p>Your tracking link:</p>
+        <a href="${baseUrl}/t/${alias}" target="_blank" rel="noopener" class="text-indigo-600 underline break-all">${baseUrl}/t/${alias}</a>
+      `;
+
+      form.reset();
+    });
+
+    // Simulate server-side tracking link redirect and location capture
+    // Since this is a static frontend, we simulate by intercepting clicks on generated links
+    // In a real app, this would be handled by a backend.
+
+    // Listen for clicks on generated links in the linkResult container
+    linkResult.addEventListener('click', async (e) => {
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+        const url = new URL(e.target.href);
+        const pathParts = url.pathname.split('/');
+        if (pathParts.length === 3 && pathParts[1] === 't') {
+          const alias = pathParts[2];
+          if (!links[alias]) {
+            alert('Tracking link not found.');
+            return;
+          }
+
+          // Get IP and location info using a public API
+          // Using https://ipapi.co/json/ for demo purposes
+          try {
+            const response = await fetch('https://ipapi.co/json/');
+            if (!response.ok) throw new Error('Failed to get location info');
+            const data = await response.json();
+
+            const ip = data.ip || 'Unknown IP';
+            const city = data.city || '';
+            const region = data.region || '';
+            const country = data.country_name || '';
+            const location = [city, region, country].filter(Boolean).join(', ') || 'Unknown location';
+
+            // Save tracking data
+            trackingData.push({
+              alias,
+              ip,
+              location,
+              timestamp: new Date().toISOString(),
+            });
+
+            renderTrackingTable();
+
+            // Redirect to target URL after short delay
+            setTimeout(() => {
+              window.open(links[alias], '_blank');
+            }, 500);
+          } catch (error) {
+            alert('Could not retrieve location info. Redirecting anyway.');
+            window.open(links[alias], '_blank');
+          }
+        }
+      }
+    });
+
+    // Initial render
+    renderTrackingTable();
+  </script>
 </body>
 </html>
