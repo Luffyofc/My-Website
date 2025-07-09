@@ -1,236 +1,440 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Link Tracker</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   White Hat &amp; Black Hat Hackers - Tools &amp; Usage
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: 'Inter', sans-serif;
     }
   </style>
-</head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-semibold text-gray-900 flex items-center">
-        <i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i> Link Tracker
-      </h1>
-    </div>
+ </head>
+ <body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a class="text-2xl font-bold text-indigo-600 flex items-center space-x-2" href="#">
+     <i class="fas fa-shield-alt">
+     </i>
+     <span>
+      HatSec Tools
+     </span>
+    </a>
+    <nav class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+     <a class="hover:text-indigo-600 transition" href="#white-hat">
+      White Hat
+     </a>
+     <a class="hover:text-indigo-600 transition" href="#black-hat">
+      Black Hat
+     </a>
+     <a class="hover:text-indigo-600 transition" href="#tools">
+      Tools
+     </a>
+     <a class="hover:text-indigo-600 transition" href="#usage">
+      Usage
+     </a>
+    </nav>
+    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+     <i class="fas fa-bars text-2xl text-gray-700">
+     </i>
+    </button>
+   </div>
+   <nav class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#white-hat">
+     White Hat
+    </a>
+    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#black-hat">
+     Black Hat
+    </a>
+    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#tools">
+     Tools
+    </a>
+    <a class="block px-4 py-3 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#usage">
+     Usage
+    </a>
+   </nav>
   </header>
-
-  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-    <section class="bg-white rounded-lg shadow p-6 mb-8">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Create a Tracking Link</h2>
-      <form id="createLinkForm" class="space-y-4">
-        <div>
-          <label for="targetUrl" class="block text-gray-700 font-medium mb-1">Target URL</label>
-          <input
-            type="url"
-            id="targetUrl"
-            name="targetUrl"
-            placeholder="https://example.com"
-            required
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <div>
-          <label for="customAlias" class="block text-gray-700 font-medium mb-1">Custom Alias (optional)</label>
-          <input
-            type="text"
-            id="customAlias"
-            name="customAlias"
-            placeholder="my-link"
-            pattern="^[a-zA-Z0-9-_]{3,30}$"
-            title="3-30 characters, letters, numbers, dash or underscore only"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <button
-          type="submit"
-          class="inline-flex items-center px-5 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        >
-          <i class="fas fa-link mr-2"></i> Create Link
-        </button>
-      </form>
-      <div id="linkResult" class="mt-6 text-indigo-700 break-all"></div>
-    </section>
-
-    <section class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Tracked Link Opens</h2>
-      <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200 text-left text-sm">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="px-4 py-2 font-medium text-gray-700">Tracking Link</th>
-              <th class="px-4 py-2 font-medium text-gray-700">IP Address</th>
-              <th class="px-4 py-2 font-medium text-gray-700">Location</th>
-              <th class="px-4 py-2 font-medium text-gray-700">Date & Time</th>
-            </tr>
-          </thead>
-          <tbody id="trackingTableBody" class="divide-y divide-gray-100">
-            <tr>
-              <td colspan="4" class="px-4 py-6 text-center text-gray-400">No tracking data yet.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-white border-t mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">
-      &copy; 2024 Link Tracker. All rights reserved.
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+   <section class="text-center max-w-3xl mx-auto">
+    <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">
+     White Hat &amp; Black Hat Hackers: Tools and How to Use Them
+    </h1>
+    <p class="text-lg text-gray-700">
+     White Hat and Black Hat hackers use various tools to either protect or
+        exploit computer systems. This website explains their roles, popular
+        tools they use, and guides on how to use these tools responsibly.
+    </p>
+    <img alt="Illustration showing a white hat hacker on the left side with a laptop and a black hat hacker on the right side in a dark room with code" class="mx-auto mt-8 rounded-lg shadow-lg" height="300" src="https://storage.googleapis.com/a1aa/image/10c9f242-e8a9-4147-93db-7a7bf37ea9e4.jpg" width="600"/>
+   </section>
+   <section class="max-w-5xl mx-auto space-y-8" id="white-hat">
+    <h2 class="text-3xl font-bold text-indigo-700 border-l-4 border-indigo-600 pl-4 mb-6">
+     White Hat Hackers
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+     <img alt="Professional ethical hacker wearing a white hat working on a laptop in a bright modern office with multiple monitors showing code and security analytics" class="rounded-lg shadow-md" height="300" src="https://storage.googleapis.com/a1aa/image/112aada9-ed62-4cfa-f287-9fb8b578d7b5.jpg" width="500"/>
+     <div class="space-y-4 text-gray-700">
+      <p>
+       White Hat hackers are cybersecurity professionals who use their
+            skills to find and fix vulnerabilities in systems legally and
+            ethically.
+      </p>
+      <ul class="list-disc list-inside space-y-2">
+       <li>
+        Perform penetration testing and vulnerability assessments
+       </li>
+       <li>
+        Help organizations improve their security posture
+       </li>
+       <li>
+        Follow legal and ethical guidelines
+       </li>
+       <li>
+        Often certified professionals (e.g., CEH, OSCP)
+       </li>
+      </ul>
+      <p class="italic text-indigo-600 font-semibold">
+       "White Hat hackers defend the digital world by thinking like
+            attackers but acting as protectors."
+      </p>
+     </div>
     </div>
+   </section>
+   <section class="max-w-5xl mx-auto space-y-8" id="black-hat">
+    <h2 class="text-3xl font-bold text-red-700 border-l-4 border-red-600 pl-4 mb-6">
+     Black Hat Hackers
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
+     <img alt="Malicious hacker wearing a black hat and hoodie working on a laptop in a dark room with green code on the screen and a shadowy atmosphere" class="rounded-lg shadow-md" height="300" src="https://storage.googleapis.com/a1aa/image/2d1b9227-d857-41b0-0ad5-763dc3a91ae0.jpg" width="500"/>
+     <div class="space-y-4 text-gray-700">
+      <p>
+       Black Hat hackers exploit security weaknesses for personal gain or
+            to cause harm. Their activities are illegal and unethical.
+      </p>
+      <ul class="list-disc list-inside space-y-2">
+       <li>
+        Steal sensitive data and credentials
+       </li>
+       <li>
+        Deploy malware, ransomware, and viruses
+       </li>
+       <li>
+        Engage in identity theft, fraud, and cybercrime
+       </li>
+       <li>
+        Operate anonymously and illegally
+       </li>
+      </ul>
+      <p class="italic text-red-600 font-semibold">
+       "Black Hat hackers threaten the safety and privacy of individuals
+            and organizations worldwide."
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="max-w-6xl mx-auto space-y-12" id="tools">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+     Popular Tools Used by White Hat and Black Hat Hackers
+    </h2>
+    <div class="grid md:grid-cols-2 gap-10">
+     <!-- White Hat Tools -->
+     <div class="bg-white rounded-lg shadow-md p-6">
+      <h3 class="text-2xl font-semibold text-indigo-700 mb-6 flex items-center space-x-2">
+       <i class="fas fa-user-shield">
+       </i>
+       <span>
+        White Hat Tools
+       </span>
+      </h3>
+      <ul class="space-y-6 text-gray-700">
+       <li>
+        <h4 class="font-semibold text-indigo-600 text-lg">
+         1.
+         <a class="hover:underline" href="https://www.kali.org/tools/nmap/" target="_blank">
+          Nmap
+         </a>
+        </h4>
+        <p>
+         Network scanner used to discover hosts and services on a
+                computer network.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-indigo-600 text-lg">
+         2.
+         <a class="hover:underline" href="https://www.metasploit.com/" target="_blank">
+          Metasploit Framework
+         </a>
+        </h4>
+        <p>
+         Penetration testing platform to find, exploit, and validate
+                vulnerabilities.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-indigo-600 text-lg">
+         3.
+         <a class="hover:underline" href="https://www.wireshark.org/" target="_blank">
+          Wireshark
+         </a>
+        </h4>
+        <p>
+         Network protocol analyzer to capture and inspect data packets.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-indigo-600 text-lg">
+         4.
+         <a class="hover:underline" href="https://www.burp.com/" target="_blank">
+          Burp Suite
+         </a>
+        </h4>
+        <p>
+         Web vulnerability scanner and testing tool for web applications.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-indigo-600 text-lg">
+         5.
+         <a class="hover:underline" href="https://www.openvas.org/" target="_blank">
+          OpenVAS
+         </a>
+        </h4>
+        <p>
+         Open-source vulnerability scanner to assess network security.
+        </p>
+       </li>
+      </ul>
+     </div>
+     <!-- Black Hat Tools -->
+     <div class="bg-white rounded-lg shadow-md p-6">
+      <h3 class="text-2xl font-semibold text-red-700 mb-6 flex items-center space-x-2">
+       <i class="fas fa-user-secret">
+       </i>
+       <span>
+        Black Hat Tools
+       </span>
+      </h3>
+      <ul class="space-y-6 text-gray-700">
+       <li>
+        <h4 class="font-semibold text-red-600 text-lg">
+         1.
+         <a class="hover:underline" href="https://www.mimikatz.org/" target="_blank">
+          Mimikatz
+         </a>
+        </h4>
+        <p>
+         Tool to extract plaintext passwords, hashes, PIN codes, and
+                Kerberos tickets from memory.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-red-600 text-lg">
+         2.
+         <a class="hover:underline" href="https://cobaltstrike.com/" target="_blank">
+          Cobalt Strike
+         </a>
+        </h4>
+        <p>
+         Commercial penetration testing tool often abused for post-exploit
+                attacks.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-red-600 text-lg">
+         3.
+         <a class="hover:underline" href="https://www.cobaltstrike.com/download" target="_blank">
+          DarkComet RAT
+         </a>
+        </h4>
+        <p>
+         Remote Access Trojan used to control infected machines remotely.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-red-600 text-lg">
+         4.
+         <a class="hover:underline" href="https://www.veil-framework.com/" target="_blank">
+          Veil Framework
+         </a>
+        </h4>
+        <p>
+         Tool to generate payloads that bypass antivirus detection.
+        </p>
+       </li>
+       <li>
+        <h4 class="font-semibold text-red-600 text-lg">
+         5.
+         <a class="hover:underline" href="https://www.sqlmap.org/" target="_blank">
+          SQLmap
+         </a>
+        </h4>
+        <p>
+         Automated tool for SQL injection and database takeover.
+        </p>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section class="max-w-6xl mx-auto space-y-12" id="usage">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+     How to Use These Tools Responsibly
+    </h2>
+    <div class="space-y-10 text-gray-700">
+     <article>
+      <h3 class="text-2xl font-semibold text-indigo-700 mb-4 flex items-center space-x-2">
+       <i class="fas fa-user-shield">
+       </i>
+       <span>
+        Using White Hat Tools
+       </span>
+      </h3>
+      <ol class="list-decimal list-inside space-y-3">
+       <li>
+        <strong>
+         Get proper authorization:
+        </strong>
+        Always have written
+              permission before testing any system.
+       </li>
+       <li>
+        <strong>
+         Learn the tool:
+        </strong>
+        Study official documentation and
+              tutorials for tools like Nmap, Metasploit, and Burp Suite.
+       </li>
+       <li>
+        <strong>
+         Start with scanning:
+        </strong>
+        Use Nmap to discover open
+              ports and services on the target network.
+       </li>
+       <li>
+        <strong>
+         Perform vulnerability assessment:
+        </strong>
+        Use OpenVAS or
+              Burp Suite to identify weaknesses.
+       </li>
+       <li>
+        <strong>
+         Exploit carefully:
+        </strong>
+        Use Metasploit to safely test
+              vulnerabilities without causing damage.
+       </li>
+       <li>
+        <strong>
+         Analyze traffic:
+        </strong>
+        Use Wireshark to monitor network
+              packets and detect anomalies.
+       </li>
+       <li>
+        <strong>
+         Report findings:
+        </strong>
+        Document and report all
+              vulnerabilities to the system owner with remediation advice.
+       </li>
+      </ol>
+     </article>
+     <article>
+      <h3 class="text-2xl font-semibold text-red-700 mb-4 flex items-center space-x-2">
+       <i class="fas fa-user-secret">
+       </i>
+       <span>
+        How Black Hat Tools Are Misused
+       </span>
+      </h3>
+      <p>
+       Black Hat tools are used illegally to compromise systems, steal data,
+            and cause harm. Understanding these tools helps defenders build
+            better protections.
+      </p>
+      <ul class="list-disc list-inside space-y-3 mt-4">
+       <li>
+        <strong>
+         Mimikatz:
+        </strong>
+        Extracts passwords from memory to
+              escalate privileges.
+       </li>
+       <li>
+        <strong>
+         Cobalt Strike:
+        </strong>
+        Used for command and control of
+              compromised machines.
+       </li>
+       <li>
+        <strong>
+         DarkComet RAT:
+        </strong>
+        Provides remote control over
+              infected computers.
+       </li>
+       <li>
+        <strong>
+         Veil Framework:
+        </strong>
+        Creates payloads that evade
+              antivirus detection.
+       </li>
+       <li>
+        <strong>
+         SQLmap:
+        </strong>
+        Automates SQL injection attacks to steal
+              or manipulate databases.
+       </li>
+      </ul>
+      <p class="mt-4 italic">
+       <strong>
+        Note:
+       </strong>
+       Using these tools without permission is illegal
+            and punishable by law.
+      </p>
+     </article>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-white border-t border-gray-200 mt-20">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+    <p>
+     © 2024 HatSec Tools. All rights reserved.
+    </p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+     <a aria-label="Twitter" class="hover:text-indigo-600 transition" href="https://twitter.com" target="_blank">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="Facebook" class="hover:text-indigo-600 transition" href="https://facebook.com" target="_blank">
+      <i class="fab fa-facebook-f fa-lg">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-indigo-600 transition" href="https://linkedin.com" target="_blank">
+      <i class="fab fa-linkedin-in fa-lg">
+      </i>
+     </a>
+    </div>
+   </div>
   </footer>
-
   <script>
-    // Simple in-memory storage for links and tracking data
-    const links = {};
-    const trackingData = [];
+   const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
 
-    // Base URL for generated tracking links (simulate current domain)
-    const baseUrl = window.location.origin;
-
-    // Elements
-    const form = document.getElementById('createLinkForm');
-    const linkResult = document.getElementById('linkResult');
-    const trackingTableBody = document.getElementById('trackingTableBody');
-
-    // Helper: sanitize alias input
-    function sanitizeAlias(alias) {
-      return alias.trim().toLowerCase();
-    }
-
-    // Helper: format date/time
-    function formatDateTime(date) {
-      return date.toLocaleString();
-    }
-
-    // Render tracking data table rows
-    function renderTrackingTable() {
-      if (trackingData.length === 0) {
-        trackingTableBody.innerHTML = `
-          <tr>
-            <td colspan="4" class="px-4 py-6 text-center text-gray-400">No tracking data yet.</td>
-          </tr>
-        `;
-        return;
-      }
-
-      trackingTableBody.innerHTML = trackingData
-        .map(
-          (item) => `
-          <tr>
-            <td class="px-4 py-2 text-indigo-700 break-all">${baseUrl}/t/${item.alias}</td>
-            <td class="px-4 py-2">${item.ip}</td>
-            <td class="px-4 py-2">${item.location}</td>
-            <td class="px-4 py-2">${formatDateTime(new Date(item.timestamp))}</td>
-          </tr>
-        `
-        )
-        .join('');
-    }
-
-    // Create tracking link
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const targetUrl = form.targetUrl.value.trim();
-      let alias = form.customAlias.value.trim();
-
-      if (!targetUrl) {
-        alert('Please enter a valid target URL.');
-        return;
-      }
-
-      if (alias) {
-        alias = sanitizeAlias(alias);
-        if (links[alias]) {
-          alert('This custom alias is already taken. Please choose another.');
-          return;
-        }
-      } else {
-        // Generate random alias
-        alias = Math.random().toString(36).substring(2, 8);
-        while (links[alias]) {
-          alias = Math.random().toString(36).substring(2, 8);
-        }
-      }
-
-      // Save link
-      links[alias] = targetUrl;
-
-      // Show generated link
-      linkResult.innerHTML = `
-        <p>Your tracking link:</p>
-        <a href="${baseUrl}/t/${alias}" target="_blank" rel="noopener" class="text-indigo-600 underline break-all">${baseUrl}/t/${alias}</a>
-      `;
-
-      form.reset();
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
     });
-
-    // Simulate server-side tracking link redirect and location capture
-    // Since this is a static frontend, we simulate by intercepting clicks on generated links
-    // In a real app, this would be handled by a backend.
-
-    // Listen for clicks on generated links in the linkResult container
-    linkResult.addEventListener('click', async (e) => {
-      if (e.target.tagName === 'A') {
-        e.preventDefault();
-        const url = new URL(e.target.href);
-        const pathParts = url.pathname.split('/');
-        if (pathParts.length === 3 && pathParts[1] === 't') {
-          const alias = pathParts[2];
-          if (!links[alias]) {
-            alert('Tracking link not found.');
-            return;
-          }
-
-          // Get IP and location info using a public API
-          // Using https://ipapi.co/json/ for demo purposes
-          try {
-            const response = await fetch('https://ipapi.co/json/');
-            if (!response.ok) throw new Error('Failed to get location info');
-            const data = await response.json();
-
-            const ip = data.ip || 'Unknown IP';
-            const city = data.city || '';
-            const region = data.region || '';
-            const country = data.country_name || '';
-            const location = [city, region, country].filter(Boolean).join(', ') || 'Unknown location';
-
-            // Save tracking data
-            trackingData.push({
-              alias,
-              ip,
-              location,
-              timestamp: new Date().toISOString(),
-            });
-
-            renderTrackingTable();
-
-            // Redirect to target URL after short delay
-            setTimeout(() => {
-              window.open(links[alias], '_blank');
-            }, 500);
-          } catch (error) {
-            alert('Could not retrieve location info. Redirecting anyway.');
-            window.open(links[alias], '_blank');
-          }
-        }
-      }
-    });
-
-    // Initial render
-    renderTrackingTable();
   </script>
-</body>
+ </body>
 </html>
