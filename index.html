@@ -1,9 +1,9 @@
-<html lang="en">
+<html class="scroll-smooth" lang="id">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   White Hat &amp; Black Hat Hackers - Tools &amp; Usage
+   Generate Link Pelacak Lokasi Real-Time
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
@@ -15,425 +15,219 @@
     }
   </style>
  </head>
- <body class="bg-gray-50 text-gray-900">
-  <header class="bg-white shadow-md sticky top-0 z-50">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-    <a class="text-2xl font-bold text-indigo-600 flex items-center space-x-2" href="#">
-     <i class="fas fa-shield-alt">
+ <body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-blue-600 text-white shadow-md">
+   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <h1 class="text-2xl font-semibold flex items-center gap-2">
+     <i class="fas fa-map-marker-alt">
      </i>
-     <span>
-      HatSec Tools
-     </span>
-    </a>
-    <nav class="hidden md:flex space-x-8 text-gray-700 font-semibold">
-     <a class="hover:text-indigo-600 transition" href="#white-hat">
-      White Hat
-     </a>
-     <a class="hover:text-indigo-600 transition" href="#black-hat">
-      Black Hat
-     </a>
-     <a class="hover:text-indigo-600 transition" href="#tools">
-      Tools
-     </a>
-     <a class="hover:text-indigo-600 transition" href="#usage">
-      Usage
-     </a>
-    </nav>
-    <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-     <i class="fas fa-bars text-2xl text-gray-700">
-     </i>
-    </button>
-   </div>
-   <nav class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
-    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#white-hat">
-     White Hat
-    </a>
-    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#black-hat">
-     Black Hat
-    </a>
-    <a class="block px-4 py-3 border-b border-gray-200 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#tools">
-     Tools
-    </a>
-    <a class="block px-4 py-3 hover:bg-indigo-50 text-indigo-700 font-semibold" href="#usage">
-     Usage
-    </a>
-   </nav>
-  </header>
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
-   <section class="text-center max-w-3xl mx-auto">
-    <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">
-     White Hat &amp; Black Hat Hackers: Tools and How to Use Them
+     Pelacak Lokasi Real-Time
     </h1>
-    <p class="text-lg text-gray-700">
-     White Hat and Black Hat hackers use various tools to either protect or
-        exploit computer systems. This website explains their roles, popular
-        tools they use, and guides on how to use these tools responsibly.
+   </div>
+  </header>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
+   <section class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-xl font-semibold mb-4 text-center text-blue-700">
+     Buat Link Pelacakan Lokasi
+    </h2>
+    <p class="mb-6 text-center text-gray-700">
+     Kirim link ini ke orang yang ingin Anda lacak. Setelah mereka mengizinkan, Anda akan melihat lokasi real-time mereka beserta peta.
     </p>
-    <img alt="Illustration showing a white hat hacker on the left side with a laptop and a black hat hacker on the right side in a dark room with code" class="mx-auto mt-8 rounded-lg shadow-lg" height="300" src="https://storage.googleapis.com/a1aa/image/10c9f242-e8a9-4147-93db-7a7bf37ea9e4.jpg" width="600"/>
-   </section>
-   <section class="max-w-5xl mx-auto space-y-8" id="white-hat">
-    <h2 class="text-3xl font-bold text-indigo-700 border-l-4 border-indigo-600 pl-4 mb-6">
-     White Hat Hackers
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-     <img alt="Professional ethical hacker wearing a white hat working on a laptop in a bright modern office with multiple monitors showing code and security analytics" class="rounded-lg shadow-md" height="300" src="https://storage.googleapis.com/a1aa/image/112aada9-ed62-4cfa-f287-9fb8b578d7b5.jpg" width="500"/>
-     <div class="space-y-4 text-gray-700">
-      <p>
-       White Hat hackers are cybersecurity professionals who use their
-            skills to find and fix vulnerabilities in systems legally and
-            ethically.
-      </p>
-      <ul class="list-disc list-inside space-y-2">
-       <li>
-        Perform penetration testing and vulnerability assessments
-       </li>
-       <li>
-        Help organizations improve their security posture
-       </li>
-       <li>
-        Follow legal and ethical guidelines
-       </li>
-       <li>
-        Often certified professionals (e.g., CEH, OSCP)
-       </li>
-      </ul>
-      <p class="italic text-indigo-600 font-semibold">
-       "White Hat hackers defend the digital world by thinking like
-            attackers but acting as protectors."
-      </p>
-     </div>
+    <form class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6" id="generateForm">
+     <input class="flex-grow border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" id="username" placeholder="Masukkan nama orang" required="" type="text"/>
+     <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded px-6 py-2 transition" type="submit">
+      Buat Link
+     </button>
+    </form>
+    <div class="text-center break-words text-blue-700 font-mono text-sm" id="linkContainer">
     </div>
    </section>
-   <section class="max-w-5xl mx-auto space-y-8" id="black-hat">
-    <h2 class="text-3xl font-bold text-red-700 border-l-4 border-red-600 pl-4 mb-6">
-     Black Hat Hackers
+   <section class="hidden mt-10 bg-white rounded-lg shadow p-6" id="trackerSection">
+    <h2 class="text-xl font-semibold mb-4 text-center text-blue-700">
+     Pelacakan Lokasi Real-Time
     </h2>
-    <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse">
-     <img alt="Malicious hacker wearing a black hat and hoodie working on a laptop in a dark room with green code on the screen and a shadowy atmosphere" class="rounded-lg shadow-md" height="300" src="https://storage.googleapis.com/a1aa/image/2d1b9227-d857-41b0-0ad5-763dc3a91ae0.jpg" width="500"/>
-     <div class="space-y-4 text-gray-700">
-      <p>
-       Black Hat hackers exploit security weaknesses for personal gain or
-            to cause harm. Their activities are illegal and unethical.
-      </p>
-      <ul class="list-disc list-inside space-y-2">
-       <li>
-        Steal sensitive data and credentials
-       </li>
-       <li>
-        Deploy malware, ransomware, and viruses
-       </li>
-       <li>
-        Engage in identity theft, fraud, and cybercrime
-       </li>
-       <li>
-        Operate anonymously and illegally
-       </li>
-      </ul>
-      <p class="italic text-red-600 font-semibold">
-       "Black Hat hackers threaten the safety and privacy of individuals
-            and organizations worldwide."
-      </p>
-     </div>
+    <p class="mb-4 text-center text-gray-700" id="trackerStatus">
+     Menunggu izin lokasi...
+    </p>
+    <div class="w-full h-64 rounded overflow-hidden border border-gray-300 shadow">
+     <img alt="Peta lokasi real-time dengan penanda posisi saat ini" class="w-full h-full object-cover" height="400" id="mapImage" loading="lazy" src="https://storage.googleapis.com/a1aa/image/5f111371-22ac-47fe-b7f8-2e2eca2572f3.jpg" width="600"/>
     </div>
-   </section>
-   <section class="max-w-6xl mx-auto space-y-12" id="tools">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
-     Popular Tools Used by White Hat and Black Hat Hackers
-    </h2>
-    <div class="grid md:grid-cols-2 gap-10">
-     <!-- White Hat Tools -->
-     <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-2xl font-semibold text-indigo-700 mb-6 flex items-center space-x-2">
-       <i class="fas fa-user-shield">
-       </i>
-       <span>
-        White Hat Tools
-       </span>
-      </h3>
-      <ul class="space-y-6 text-gray-700">
-       <li>
-        <h4 class="font-semibold text-indigo-600 text-lg">
-         1.
-         <a class="hover:underline" href="https://www.kali.org/tools/nmap/" target="_blank">
-          Nmap
-         </a>
-        </h4>
-        <p>
-         Network scanner used to discover hosts and services on a
-                computer network.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-indigo-600 text-lg">
-         2.
-         <a class="hover:underline" href="https://www.metasploit.com/" target="_blank">
-          Metasploit Framework
-         </a>
-        </h4>
-        <p>
-         Penetration testing platform to find, exploit, and validate
-                vulnerabilities.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-indigo-600 text-lg">
-         3.
-         <a class="hover:underline" href="https://www.wireshark.org/" target="_blank">
-          Wireshark
-         </a>
-        </h4>
-        <p>
-         Network protocol analyzer to capture and inspect data packets.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-indigo-600 text-lg">
-         4.
-         <a class="hover:underline" href="https://www.burp.com/" target="_blank">
-          Burp Suite
-         </a>
-        </h4>
-        <p>
-         Web vulnerability scanner and testing tool for web applications.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-indigo-600 text-lg">
-         5.
-         <a class="hover:underline" href="https://www.openvas.org/" target="_blank">
-          OpenVAS
-         </a>
-        </h4>
-        <p>
-         Open-source vulnerability scanner to assess network security.
-        </p>
-       </li>
-      </ul>
-     </div>
-     <!-- Black Hat Tools -->
-     <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-2xl font-semibold text-red-700 mb-6 flex items-center space-x-2">
-       <i class="fas fa-user-secret">
-       </i>
-       <span>
-        Black Hat Tools
-       </span>
-      </h3>
-      <ul class="space-y-6 text-gray-700">
-       <li>
-        <h4 class="font-semibold text-red-600 text-lg">
-         1.
-         <a class="hover:underline" href="https://www.mimikatz.org/" target="_blank">
-          Mimikatz
-         </a>
-        </h4>
-        <p>
-         Tool to extract plaintext passwords, hashes, PIN codes, and
-                Kerberos tickets from memory.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-red-600 text-lg">
-         2.
-         <a class="hover:underline" href="https://cobaltstrike.com/" target="_blank">
-          Cobalt Strike
-         </a>
-        </h4>
-        <p>
-         Commercial penetration testing tool often abused for post-exploit
-                attacks.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-red-600 text-lg">
-         3.
-         <a class="hover:underline" href="https://www.cobaltstrike.com/download" target="_blank">
-          DarkComet RAT
-         </a>
-        </h4>
-        <p>
-         Remote Access Trojan used to control infected machines remotely.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-red-600 text-lg">
-         4.
-         <a class="hover:underline" href="https://www.veil-framework.com/" target="_blank">
-          Veil Framework
-         </a>
-        </h4>
-        <p>
-         Tool to generate payloads that bypass antivirus detection.
-        </p>
-       </li>
-       <li>
-        <h4 class="font-semibold text-red-600 text-lg">
-         5.
-         <a class="hover:underline" href="https://www.sqlmap.org/" target="_blank">
-          SQLmap
-         </a>
-        </h4>
-        <p>
-         Automated tool for SQL injection and database takeover.
-        </p>
-       </li>
-      </ul>
-     </div>
-    </div>
-   </section>
-   <section class="max-w-6xl mx-auto space-y-12" id="usage">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
-     How to Use These Tools Responsibly
-    </h2>
-    <div class="space-y-10 text-gray-700">
-     <article>
-      <h3 class="text-2xl font-semibold text-indigo-700 mb-4 flex items-center space-x-2">
-       <i class="fas fa-user-shield">
-       </i>
-       <span>
-        Using White Hat Tools
-       </span>
-      </h3>
-      <ol class="list-decimal list-inside space-y-3">
-       <li>
-        <strong>
-         Get proper authorization:
-        </strong>
-        Always have written
-              permission before testing any system.
-       </li>
-       <li>
-        <strong>
-         Learn the tool:
-        </strong>
-        Study official documentation and
-              tutorials for tools like Nmap, Metasploit, and Burp Suite.
-       </li>
-       <li>
-        <strong>
-         Start with scanning:
-        </strong>
-        Use Nmap to discover open
-              ports and services on the target network.
-       </li>
-       <li>
-        <strong>
-         Perform vulnerability assessment:
-        </strong>
-        Use OpenVAS or
-              Burp Suite to identify weaknesses.
-       </li>
-       <li>
-        <strong>
-         Exploit carefully:
-        </strong>
-        Use Metasploit to safely test
-              vulnerabilities without causing damage.
-       </li>
-       <li>
-        <strong>
-         Analyze traffic:
-        </strong>
-        Use Wireshark to monitor network
-              packets and detect anomalies.
-       </li>
-       <li>
-        <strong>
-         Report findings:
-        </strong>
-        Document and report all
-              vulnerabilities to the system owner with remediation advice.
-       </li>
-      </ol>
-     </article>
-     <article>
-      <h3 class="text-2xl font-semibold text-red-700 mb-4 flex items-center space-x-2">
-       <i class="fas fa-user-secret">
-       </i>
-       <span>
-        How Black Hat Tools Are Misused
-       </span>
-      </h3>
-      <p>
-       Black Hat tools are used illegally to compromise systems, steal data,
-            and cause harm. Understanding these tools helps defenders build
-            better protections.
-      </p>
-      <ul class="list-disc list-inside space-y-3 mt-4">
-       <li>
-        <strong>
-         Mimikatz:
-        </strong>
-        Extracts passwords from memory to
-              escalate privileges.
-       </li>
-       <li>
-        <strong>
-         Cobalt Strike:
-        </strong>
-        Used for command and control of
-              compromised machines.
-       </li>
-       <li>
-        <strong>
-         DarkComet RAT:
-        </strong>
-        Provides remote control over
-              infected computers.
-       </li>
-       <li>
-        <strong>
-         Veil Framework:
-        </strong>
-        Creates payloads that evade
-              antivirus detection.
-       </li>
-       <li>
-        <strong>
-         SQLmap:
-        </strong>
-        Automates SQL injection attacks to steal
-              or manipulate databases.
-       </li>
-      </ul>
-      <p class="mt-4 italic">
-       <strong>
-        Note:
-       </strong>
-       Using these tools without permission is illegal
-            and punishable by law.
-      </p>
-     </article>
+    <div class="mt-4 text-center text-gray-800 font-semibold" id="coords">
     </div>
    </section>
   </main>
-  <footer class="bg-white border-t border-gray-200 mt-20">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-    <p>
-     © 2024 HatSec Tools. All rights reserved.
-    </p>
-    <div class="flex space-x-6 mt-4 md:mt-0">
-     <a aria-label="Twitter" class="hover:text-indigo-600 transition" href="https://twitter.com" target="_blank">
-      <i class="fab fa-twitter fa-lg">
-      </i>
-     </a>
-     <a aria-label="Facebook" class="hover:text-indigo-600 transition" href="https://facebook.com" target="_blank">
-      <i class="fab fa-facebook-f fa-lg">
-      </i>
-     </a>
-     <a aria-label="LinkedIn" class="hover:text-indigo-600 transition" href="https://linkedin.com" target="_blank">
-      <i class="fab fa-linkedin-in fa-lg">
-      </i>
-     </a>
-    </div>
-   </div>
+  <footer class="bg-blue-600 text-white py-4 text-center text-sm">
+   © 2024 Pelacak Lokasi Real-Time. Semua hak cipta dilindungi.
   </footer>
   <script>
-   const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
+   // Utility to get URL param
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    // Generate a unique ID (simple)
+    function generateId() {
+      return Math.random().toString(36).substring(2, 10);
+    }
+
+    // Build the tracking link
+    function buildTrackingLink(username, id) {
+      const baseUrl = window.location.origin + window.location.pathname;
+      return `${baseUrl}?track=${id}&user=${encodeURIComponent(username)}`;
+    }
+
+    // Update map image URL with coordinates using placehold.co with marker
+    // Since placehold.co doesn't support real maps, we will simulate with a placeholder and coordinates text
+    // In real app, you would use a map API like Google Maps Static API or OpenStreetMap Static API
+    function updateMap(lat, lon) {
+      // Create a placeholder image with coordinates text
+      // Using placehold.co with text param
+      const text = encodeURIComponent(`Lokasi: ${lat.toFixed(5)}, ${lon.toFixed(5)}`);
+      const url = `https://placehold.co/600x400/png?text=${text}&font=roboto&font-size=20&bg=blue&fg=white`;
+      const mapImage = document.getElementById('mapImage');
+      mapImage.src = url;
+      mapImage.alt = `Peta lokasi real-time dengan koordinat lintang ${lat.toFixed(5)} dan bujur ${lon.toFixed(5)}`;
+    }
+
+    // Save location data to localStorage (simulate backend)
+    function saveLocation(id, coords) {
+      const data = JSON.parse(localStorage.getItem('trackingData') || '{}');
+      data[id] = coords;
+      localStorage.setItem('trackingData', JSON.stringify(data));
+    }
+
+    // Get location data from localStorage
+    function getLocation(id) {
+      const data = JSON.parse(localStorage.getItem('trackingData') || '{}');
+      return data[id] || null;
+    }
+
+    // Show tracking link after generation
+    const form = document.getElementById('generateForm');
+    const linkContainer = document.getElementById('linkContainer');
+    const trackerSection = document.getElementById('trackerSection');
+    const trackerStatus = document.getElementById('trackerStatus');
+    const coordsDisplay = document.getElementById('coords');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = form.username.value.trim();
+      if (!username) return;
+
+      // Generate unique ID for tracking session
+      const id = generateId();
+
+      // Save username and id in localStorage for simulation
+      localStorage.setItem('trackingUser', JSON.stringify({ id, username }));
+
+      // Build link
+      const link = buildTrackingLink(username, id);
+
+      // Show link
+      linkContainer.innerHTML = `
+        <p class="mb-2">Kirim link ini ke <strong>${username}</strong> untuk mulai pelacakan:</p>
+        <a href="${link}" target="_blank" class="inline-block break-all text-blue-800 underline">${link}</a>
+      `;
+
+      // Clear form
+      form.reset();
+
+      // Scroll to link
+      linkContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // If URL has ?track=...&user=..., show location request and tracking
+    window.addEventListener('load', () => {
+      const trackId = getQueryParam('track');
+      const user = getQueryParam('user');
+
+      if (trackId && user) {
+        // This is the tracked person page - ask for location permission and update location
+        document.title = `Pelacakan Lokasi untuk ${user}`;
+        trackerSection.classList.remove('hidden');
+        trackerStatus.textContent = `Halo ${user}, izinkan akses lokasi untuk mulai berbagi lokasi real-time.`;
+
+        if (!navigator.geolocation) {
+          trackerStatus.textContent = 'Geolocation tidak didukung oleh browser Anda.';
+          return;
+        }
+
+        // Watch position and update location continuously
+        const watchId = navigator.geolocation.watchPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            trackerStatus.textContent = `Lokasi Anda sedang dibagikan.`;
+            coordsDisplay.textContent = `Koordinat: Lintang ${latitude.toFixed(5)}, Bujur ${longitude.toFixed(5)}`;
+
+            // Update map image
+            updateMap(latitude, longitude);
+
+            // Save location to localStorage for tracker to read
+            saveLocation(trackId, { latitude, longitude, timestamp: Date.now() });
+          },
+          (error) => {
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                trackerStatus.textContent = 'Izin lokasi ditolak. Anda harus mengizinkan akses lokasi untuk berbagi lokasi.';
+                break;
+              case error.POSITION_UNAVAILABLE:
+                trackerStatus.textContent = 'Informasi lokasi tidak tersedia.';
+                break;
+              case error.TIMEOUT:
+                trackerStatus.textContent = 'Permintaan lokasi habis waktu.';
+                break;
+              default:
+                trackerStatus.textContent = 'Terjadi kesalahan saat mengambil lokasi.';
+                break;
+            }
+          },
+          {
+            enableHighAccuracy: true,
+            maximumAge: 10000,
+            timeout: 10000,
+          }
+        );
+
+        // Stop watching when user leaves page
+        window.addEventListener('beforeunload', () => {
+          navigator.geolocation.clearWatch(watchId);
+        });
+      } else {
+        // This is the tracker page - show last known location if available
+        document.title = 'Pelacak Lokasi Real-Time';
+
+        // Try to get saved tracking user from localStorage
+        const trackingUser = JSON.parse(localStorage.getItem('trackingUser') || '{}');
+        if (trackingUser && trackingUser.id && trackingUser.username) {
+          // Show tracking link and start polling location
+          const { id, username } = trackingUser;
+          const link = buildTrackingLink(username, id);
+          linkContainer.innerHTML = `
+            <p class="mb-2">Link pelacakan untuk <strong>${username}</strong>:</p>
+            <a href="${link}" target="_blank" class="inline-block break-all text-blue-800 underline">${link}</a>
+          `;
+
+          trackerSection.classList.remove('hidden');
+          trackerStatus.textContent = `Menunggu lokasi dari ${username}...`;
+          coordsDisplay.textContent = '';
+
+          // Poll location every 5 seconds
+          setInterval(() => {
+            const loc = getLocation(id);
+            if (loc) {
+              trackerStatus.textContent = `Lokasi terakhir diterima dari ${username}:`;
+              coordsDisplay.textContent = `Lintang ${loc.latitude.toFixed(5)}, Bujur ${loc.longitude.toFixed(5)}`;
+              updateMap(loc.latitude, loc.longitude);
+            } else {
+              trackerStatus.textContent = `Menunggu lokasi dari ${username}...`;
+              coordsDisplay.textContent = '';
+              document.getElementById('mapImage').src = 'https://placehold.co/600x400/png?text=Map+Real-Time+Lokasi';
+              document.getElementById('mapImage').alt = 'Peta lokasi real-time dengan penanda posisi saat ini';
+            }
+          }, 5000);
+        }
+      }
     });
   </script>
  </body>
